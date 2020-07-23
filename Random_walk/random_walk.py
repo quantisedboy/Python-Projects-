@@ -1,3 +1,6 @@
+"""
+1.1.1
+"""
 import numpy as np
 from matplotlib import pyplot as plt 
 import random
