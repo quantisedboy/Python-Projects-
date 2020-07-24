@@ -1,5 +1,5 @@
 """
-1.1.1
+2.1.1
 """
 import numpy as np
 from matplotlib import pyplot as plt 
@@ -85,5 +85,34 @@ class Random:
         plt.axis('on')
         plt.show()
 
-walker=Random(50)
-walker.one_dimensional_random_walk()
+    def two_dimensional_random_walk(self):
+        """
+        Computes and prints Random Walk in 2D for given number of steps and 
+        given initial values
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+
+        """
+        x=self.x
+        y=self.y
+        for i in range(self.n):
+            random_number=random.randint(1,4)
+            if(random_number==1):
+                y+=1
+            elif(random_number==2):
+                x+=1
+            elif(random_number==3):
+                y-=1
+            else:
+                x-=1
+        print('The Final Position of Random Walker x:{pos1} , y:{pos2}'.format(pos1=x, pos2=y))
+                
+
+walker=Random(1000)
+walker.two_dimensional_random_walk()
