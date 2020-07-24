@@ -1,5 +1,5 @@
 """
-2.1.1
+2.2.1
 """
 import numpy as np
 from matplotlib import pyplot as plt 
@@ -90,6 +90,8 @@ class Random:
         Computes and prints Random Walk in 2D for given number of steps and 
         given initial values
 
+        Displays the Random Walk .
+
         Parameters
         ----------
         None
@@ -101,6 +103,8 @@ class Random:
         """
         x=self.x
         y=self.y
+        x_pos=[x]
+        y_pos=[y]
         for i in range(self.n):
             random_number=random.randint(1,4)
             if(random_number==1):
@@ -111,8 +115,16 @@ class Random:
                 y-=1
             else:
                 x-=1
+            x_pos.append(x)
+            y_pos.append(y)
         print('The Final Position of Random Walker x:{pos1} , y:{pos2}'.format(pos1=x, pos2=y))
+        plt.figure()
+        for i in range(len(x_pos)-2):
+            plt.plot(x_pos[i:i+2],y_pos[i:i+2],color='black')
+        plt.axis('off')
+        plt.show()
+
                 
 
-walker=Random(1000)
+walker=Random(100000)
 walker.two_dimensional_random_walk()
